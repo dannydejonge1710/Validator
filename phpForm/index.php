@@ -1,32 +1,8 @@
-<style><?php include 'css.css'; ?></style>
+<?php include 'validate.php'; ?>
 
 <?php
-
 	if (isset($_POST['submit'])) {
-		validateAction();
-	}
-
-	function validateAction(){
-
-		$Voornaam = $_POST['Voornaam'];
-		$Achternaam = $_POST['Achternaam']; 
-		$PostcodeNr = $_POST['PostcodeNr']; 
-		$PostcodeTxt = $_POST['PostcodeTxt']; 
-		$Mobiel = $_POST['Mobiel']; 
-		$Email = $_POST['Email']; 
-		$Woonplaats = $_POST['Woonplaats']; 
-
-		if (ctype_alpha($Voornaam) == false) {
-			echo "Voornaam is incorrect <br>";
-		}
-
-		if (ctype_alpha($Achternaam) == false) {
-			echo "Achternaam is incorrect <br>";
-		}
-
-		if (ctype_alpha($Woonplaats) == false) {
-			echo "Woonplaats is incorrect <br>";
-		}
+		$validateAction = validateAction();
 	}
 ?>
 
@@ -48,10 +24,10 @@
 	        	<a style="color: gray; cursor: pointer; outline: none;" class="nav-link" href="../htmlForm/index.html">HTML </a>
 	        </li>
 	        <li class="nav-item">
-	        	<a style="color: gray; cursor: pointer; outline: none;" class="nav-link" href="index.html">JavaScript </a>
+	        	<a style="color: gray; cursor: pointer; outline: none;" class="nav-link" href="../jsForm/index.html">JavaScript </a>
 	        </li>
 	        <li class="nav-item">
-	        	<a style="color: black; cursor: pointer; outline: none;" class="nav-link" href="index.html">PHP </a>
+	        	<a style="color: black; cursor: pointer; outline: none;" class="nav-link" href="../phpForm/index.php">PHP </a>
 	      	</li>
 	    </ul>
 	</nav>
@@ -62,11 +38,25 @@
 
 		<form action="" method="post" name="jsForm">
 			<div class="form-group">
-			    <input style="box-shadow: none; border: 1px solid black" type="text" class="form-control" id="Voornaam" name="Voornaam" placeholder="Voornaam" value="<?php echo $_POST['Voornaam']?>">
+			    <input 
+			    style="box-shadow: none; border: 
+			    <?php if ($validateAction['voornaam'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['voornaam'];} ?>" 
+
+			    type="text" class="form-control" id="Voornaam" name="Voornaam" placeholder="Voornaam" 
+			    value="<?php echo $_POST['Voornaam']?>">
 		  	</div>
 
 		  	<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" id="Achternaam" name="Achternaam" placeholder="Achternaam" value="<?php echo $_POST['Achternaam']?>">
+			    <input 
+			    style="box-shadow: none; border: 
+			    <?php if ($validateAction['achternaam'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['achternaam'];} ?>" 
+
+			    type="text" class="form-control" id="Achternaam" name="Achternaam" placeholder="Achternaam" 
+			    value="<?php echo $_POST['Achternaam']?>">
 		  	</div>
 
 		  	<div class="form-group">
@@ -83,7 +73,14 @@
 			</div>
 
 		  	<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" name="Woonplaats" id="Woonplaats" placeholder="Woonplaats" value="<?php echo $_POST['Woonplaats']?>">
+			    <input 			    
+			    style="box-shadow: none; border: 
+			    <?php if ($validateAction['woonplaats'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['woonplaats'];} ?>" 
+
+				 type="text" class="form-control" name="Woonplaats" id="Woonplaats" placeholder="Woonplaats" 
+				 value="<?php echo $_POST['Woonplaats']?>">
 		  	</div>
 
   			<button type="Submit" name="submit" class="btn btn-primary">Submit</button>
