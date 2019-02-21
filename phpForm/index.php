@@ -1,21 +1,46 @@
+<style><?php include 'css.css'; ?></style>
+
+<?php
+
+	if (isset($_POST['submit'])) {
+		validateAction();
+	}
+
+	function validateAction(){
+
+		$Voornaam = $_POST['Voornaam'];
+		$Achternaam = $_POST['Achternaam']; 
+		$PostcodeNr = $_POST['PostcodeNr']; 
+		$PostcodeTxt = $_POST['PostcodeTxt']; 
+		$Mobiel = $_POST['Mobiel']; 
+		$Email = $_POST['Email']; 
+		$Woonplaats = $_POST['Woonplaats']; 
+
+		if (ctype_alpha($Voornaam) == false) {
+			echo "Voornaam is incorrect <br>";
+		}
+
+		if (ctype_alpha($Achternaam) == false) {
+			echo "Achternaam is incorrect <br>";
+		}
+
+		if (ctype_alpha($Woonplaats) == false) {
+			echo "Woonplaats is incorrect <br>";
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Validation</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">  -->
-	<link rel="stylesheet" href="css.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<meta charset="utf-8">
 </head> 
+
 <body>
-
-	<style>
-		.form-control{
-			border: 1px solid black;
-		}
-
-	</style>
 
 	<nav style="border-bottom: 1px solid black; background-color: #98ff96" class="navbar navbar">
   		<ul class="nav"">
@@ -35,33 +60,33 @@
 
 		<h1>PHP Form</h1>
 
-		<form name="jsForm">
+		<form action="" method="post" name="jsForm">
 			<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" id="Voornaam" name="Voornaam" placeholder="Voornaam">
+			    <input style="box-shadow: none; border: 1px solid black" type="text" class="form-control" id="Voornaam" name="Voornaam" placeholder="Voornaam" value="<?php echo $_POST['Voornaam']?>">
 		  	</div>
 
 		  	<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" id="Achternaam" name="Achternaam" placeholder="Achternaam">
+			    <input style="box-shadow: none;" type="text" class="form-control" id="Achternaam" name="Achternaam" placeholder="Achternaam" value="<?php echo $_POST['Achternaam']?>">
 		  	</div>
 
 		  	<div class="form-group">
-			    <input style="width: 75%; display: inline-block; margin-right: 5px; box-shadow: none;" type="text" class="form-control" id="PostcodeNr" name="PostcodeNr" placeholder="Postcode">
-			   	<input style="width: 24%; display: inline-block; box-shadow: none;" type="text" class="form-control" id="PostcodeTxt" name="PostcodeTxt">
+			    <input style="width: 75%; display: inline-block; margin-right: 5px; box-shadow: none;" type="text" class="form-control" id="PostcodeNr" name="PostcodeNr" placeholder="Postcode" value="<?php echo $_POST['PostcodeNr']?>">
+			   	<input style="width: 24%; display: inline-block; box-shadow: none;" type="text" class="form-control" id="PostcodeTxt" name="PostcodeTxt" value="<?php echo $_POST['PostcodeTxt']?>">
 		  	</div>
 
 		  	<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" name="Mobiel" id="Mobiel" placeholder="Mobiel">
+			    <input style="box-shadow: none;" type="text" class="form-control" name="Mobiel" id="Mobiel" placeholder="Mobiel" value="<?php echo $_POST['Mobiel']?>">
 		  	</div>
 
 			<div class="form-group">
-				<input style="box-shadow: none;" type="text" class="form-control" name="Email" id="Email" placeholder="Email">
+				<input style="box-shadow: none;" type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?php echo $_POST['Email']?>">
 			</div>
 
 		  	<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" name="Woonplaats" id="Woonplaats" placeholder="Woonplaats">
+			    <input style="box-shadow: none;" type="text" class="form-control" name="Woonplaats" id="Woonplaats" placeholder="Woonplaats" value="<?php echo $_POST['Woonplaats']?>">
 		  	</div>
 
-  			<button type="button" class="btn btn-primary">Submit</button>
+  			<button type="Submit" name="submit" class="btn btn-primary">Submit</button>
 
 		</form>
 	</div>	
