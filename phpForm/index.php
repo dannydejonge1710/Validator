@@ -60,16 +60,37 @@
 		  	</div>
 
 		  	<div class="form-group">
-			    <input style="width: 75%; display: inline-block; margin-right: 5px; box-shadow: none;" type="text" class="form-control" id="PostcodeNr" name="PostcodeNr" placeholder="Postcode" value="<?php echo $_POST['PostcodeNr']?>">
-			   	<input style="width: 24%; display: inline-block; box-shadow: none;" type="text" class="form-control" id="PostcodeTxt" name="PostcodeTxt" value="<?php echo $_POST['PostcodeTxt']?>">
+
+			    <input style="width: 75%; display: inline-block; margin-right: 5px; box-shadow: none; border:
+			        <?php if ($validateAction['postcodenr'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['postcodenr'];} ?>" 
+
+			    type="text" class="form-control" id="PostcodeNr" name="PostcodeNr" placeholder="Postcode" value="<?php echo $_POST['PostcodeNr']?>">
+			   	<input style="width: 24%; display: inline-block; box-shadow: none; border: 
+			   	 <?php if ($validateAction['postcodetxt'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['postcodetxt'];} ?>" 
+
+			   	type="text" class="form-control" id="PostcodeTxt" name="PostcodeTxt" value="<?php echo $_POST['PostcodeTxt']?>">
 		  	</div>
 
 		  	<div class="form-group">
-			    <input style="box-shadow: none;" type="text" class="form-control" name="Mobiel" id="Mobiel" placeholder="Mobiel" value="<?php echo $_POST['Mobiel']?>">
+			    <input style="box-shadow: none; border: 
+			    <?php if ($validateAction['mobiel'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['mobiel'];} ?>" 
+
+			    type="text" class="form-control" name="Mobiel" id="Mobiel" placeholder="Mobiel" value="<?php echo $_POST['Mobiel']?>">
 		  	</div>
 
 			<div class="form-group">
-				<input style="box-shadow: none;" type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?php echo $_POST['Email']?>">
+				<input style="box-shadow: none; border: 
+				<?php if ($validateAction['email'] == null) {
+			    	echo '1px solid black';
+			    } else {echo $validateAction['email'];} ?>" 
+
+				type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?php echo $_POST['Email']?>">
 			</div>
 
 		  	<div class="form-group">
